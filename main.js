@@ -80,6 +80,20 @@ const rowdog = new THREE.Mesh(
 
 scene.add(rowdog);
 
+// add the Moon object
+const moonTexture = new THREE.TextureLoader().load('moon.jpg');
+const normalTexture = new THREE.TextureLoader().load('normal.jpg');
+
+const moon = new THREE.Mesh(
+  new THREE.SphereGeometry(3, 32, 32),
+  new THREE.MeshStandardMaterial({
+    map: moonTexture,
+    normalMap: normalTexture
+  })
+);
+
+scene.add(moon);
+
 // create a function to animate the scene
 function animate() {
   requestAnimationFrame(animate);
@@ -95,3 +109,13 @@ function animate() {
 }
 
 animate();
+
+// add the event listener to the window to handle window resize
+window.addEventListener('resize', () => {
+  // update the camera aspect ratio
+  camera.aspect = window.innerWidth / window.innerHeight;
+  // update the camera projection matrix
+  camera.updateProjectionMatrix();
+  // update the renderer size
+  renderer.setSize(window.innerWidth, window.innerHeight);
+});
