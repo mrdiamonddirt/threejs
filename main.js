@@ -25,12 +25,25 @@ renderer.render(scene, camera);
 // create the geomantry
 const geometry = new THREE.TorusGeometry(10, 3, 16, 100);
 // create the material
-const material = new THREE.MeshBasicMaterial({ color: 0xFF6347, wireframe: true });
+const material = new THREE.MeshStandardMaterial({ color: 0xFF6347});
 // create the mesh adding the geometry and the material
 const torus = new THREE.Mesh(geometry, material);
 
 // add the mesh to the scene
 scene.add(torus);
+
+// add a point light
+const pointLight = new THREE.PointLight(0xffffff);
+pointLight.position.set(5, 5, 5);
+
+// add ambient light
+const ambientLight = new THREE.AmbientLight(0xffffff);
+scene.add(pointLight, ambientLight);
+
+// add a helpers
+const lightHelper = new THREE.PointLightHelper(pointLight);
+const gridHelper = new THREE.GridHelper(200, 50);
+scene.add(lightHelper, gridHelper);
 
 // create a function to animate the scene
 function animate() {
