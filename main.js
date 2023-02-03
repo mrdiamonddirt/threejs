@@ -70,6 +70,16 @@ Array(200).fill().forEach(addStar);
 const spaceTexture = new THREE.TextureLoader().load('space.jpg');
 scene.background = spaceTexture;
 
+// create Avatar
+const rowdogTexture = new THREE.TextureLoader().load('rowdog.png');
+
+const rowdog = new THREE.Mesh(
+  new THREE.BoxGeometry(3, 3, 3),
+  new THREE.MeshBasicMaterial({ map: rowdogTexture })
+);
+
+scene.add(rowdog);
+
 // create a function to animate the scene
 function animate() {
   requestAnimationFrame(animate);
