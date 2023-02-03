@@ -3,15 +3,18 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "homepage": "https://mrdiamonddirt.github.io/threejs/",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "deploy": "gh-pages -d dist"
   },
   "devDependencies": {
     "vite": "^4.1.0"
   },
   "dependencies": {
+    "ghpages": "^0.0.10",
     "three": "^0.149.0"
   }
 }
