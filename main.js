@@ -66,6 +66,10 @@ function addStar() {
 // add 200 stars
 Array(200).fill().forEach(addStar);
 
+// add the background image
+const spaceTexture = new THREE.TextureLoader().load('space.jpg');
+scene.background = spaceTexture;
+
 // create a function to animate the scene
 function animate() {
   requestAnimationFrame(animate);
